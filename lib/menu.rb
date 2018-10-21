@@ -10,6 +10,7 @@ attr_reader :dishes
     @dishes.each { |dish| puts "#{dish.name}  :  #{dish.price}" }
   end
 
+
   private
 
   def nothing_on_menu?
