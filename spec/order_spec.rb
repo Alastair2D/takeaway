@@ -33,9 +33,6 @@ describe Order do
   end
 
   describe '#list_basket' do 
-    it 'throws an error message if @basket is empty' do 
-      expect { subject.list_basket }.to raise_error 'Basket is empty'
-    end
     it 'prints dishes with amount in @basket' do 
       subject.add(pie, 5)
       order_list = "5 x pie\n"

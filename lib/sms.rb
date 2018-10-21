@@ -1,4 +1,5 @@
 require 'twilio-ruby'
+# require 'dotenv/load'
 
 class Sms
 # attr_reader :from, :to, :message
@@ -16,11 +17,24 @@ to = '+447500602857' # Your mobile phone number # set ENV VARS before commit
   end
 
   def send
-    @client.messages.create(
-    from: @from,
-    to: @to,
-    body: @message
-    )
+    @client.messages.create(message_arguments)
+    "Message sent"
   end
+
+
+private
+
+def message_arguments
+   {
+     body: "Thank you for your order. It should be with you by #{time}",
+     to: ENV['MY_PHONE_NUMBER'],
+     from: ENV['TWILIO_PHONE_NUMBER']
+   }
+ end
+
+ def time
+   time = Time.now + 3600
+   "#{time.hour}:#{time.min}"
+ end
 
 end

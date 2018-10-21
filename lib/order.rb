@@ -24,7 +24,7 @@ attr_reader :basket, :menu, :on_menu, :empty_basket
   end
 
   def total 
-    raise 'Basket is empty' if empty_basket?
+    raise 'Basket is empty' if empty_basket
     @basket.map { |item| item[:amount] * item[:dish].price }.reduce(:+)
   end
 
